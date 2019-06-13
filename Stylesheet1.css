@@ -1,0 +1,24 @@
+﻿.newStyle3 {
+    background-image: url('image/sun.jpg');
+    background-position: 50% top;
+    background-repeat: no-repeat;
+    background-attachment: inherit;
+    width:1133px;
+    margin-left: 0px;
+    height: 700px;
+    margin-bottom: 0;
+}
+
+div {
+    font: 80% Arial, Helvetica, sans-serif;
+    padding-top: 20px;
+    padding-left: 200px;
+    }
+
+    body
+
+{
+    margin: 0;
+    padding: 0;
+}
+
