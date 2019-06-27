@@ -53,7 +53,11 @@ li {
 
         #form1 {
             height: 611px;
-            width: 952px;
+            width: 1028px;
+        }
+
+        .newStyle4 {
+            position: fixed;
         }
 
     </style> 
@@ -77,7 +81,7 @@ li {
                <br />
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Add Brand"></asp:Label>
+               <asp:Label ID="Label1" runat="server" Text="Add Brand" style="font-weight: 700"></asp:Label>
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
@@ -97,7 +101,7 @@ li {
                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" />
                <br />
                <br />
-               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 263px; top: 299px; position: absolute; height: 197px; width: 403px">
+               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 328px; top: 379px; position: absolute; height: 221px; width: 671px">
                    <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                    <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
                    <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
@@ -108,7 +112,9 @@ li {
                    <SortedDescendingCellStyle BackColor="#F1E5CE" />
                    <SortedDescendingHeaderStyle BackColor="#93451F" />
                </asp:GridView>
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT * FROM [brandList]"></asp:SqlDataSource>
                <br />
+               <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
         </form>
-</body>
-</html>
+    </body>
+    </html>    

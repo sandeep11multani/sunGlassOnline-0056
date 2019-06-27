@@ -11,8 +11,8 @@ namespace WebApplication7
 {
     public partial class addBrand : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-9huanl2\\khehra05;Initial Catalog=newP;Integrated Security=True";
-       
+        public string mystring = "Data Source=desktop-6ddcjgt;Initial Catalog=sunglassonline;Integrated Security=True";
+
         protected void Page_Load(object sender, EventArgs e)
         {
            string query = "select * from brandList";
@@ -42,8 +42,7 @@ namespace WebApplication7
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-           cmd.CommandText = " insert into brandList values('" + TextBox2.Text + "','"+TextBox3.Text+ "')";
-
+           cmd.CommandText = " insert into brandList values('" + TextBox3.Text + "','"+TextBox2.Text+ "')";
             cmd.ExecuteNonQuery();
             con.Close();
             TextBox3.Text = "";
@@ -100,8 +99,8 @@ namespace WebApplication7
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/Brands List" +
-                ".aspx");
+            Response.Redirect("~/Brands List.aspx");
+
         }
 
         protected void LinkButton2_Click(object sender, EventArgs e)
@@ -112,6 +111,16 @@ namespace WebApplication7
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/WebForm2.aspx");
+        }
+
+        protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_SelectedIndexChanged2(object sender, EventArgs e)
+        {
+
         }
     }
 }
