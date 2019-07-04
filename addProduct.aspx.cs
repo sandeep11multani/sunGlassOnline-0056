@@ -11,10 +11,15 @@ namespace WebApplication7
 {
     public partial class addProduct : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-9huanl2\\khehra05;Initial Catalog=newP;Integrated Security=True";
+        public string mystring = "Data Source=desktop-6ddcjgt;Initial Catalog=sunglassonline;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string query = "select * from productList";
+           /* if (!Page.IsPostBack)
+            {
+                DropDownList2.DataSource = DropDownList2.SelectedItem.Value;
+                DropDownList2.DataBind();
+            }*/
+                string query = "select * from productListt";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;
@@ -25,9 +30,6 @@ namespace WebApplication7
             da.Fill(ds);
             GridView1.DataSource = ds;
             GridView1.DataBind();
-           
-            
-            
             con.Close();
         }
 
@@ -36,15 +38,21 @@ namespace WebApplication7
             SqlConnection con = new SqlConnection(mystring);
             con.Open();
             SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-              cmd.CommandText = " insert into productList values('" + TextBox2.Text + "','" + TextBox6.Text + "','"+TextBox5.Text+"')";
 
-            cmd.ExecuteNonQuery();
-            con.Close();
+            cmd.CommandType = CommandType.Text;
+              cmd.CommandText = " insert into productListt values('"+ DropDownList2.SelectedValue +"','" + TextBox2.Text + "','" + TextBox6.Text + 
+                "','"+TextBox5.Text+ "','" + DropDownList1.SelectedValue + "')";
+
+            cmd.Parameters.AddWithValue("brand", DropDownList2.SelectedItem.Value);
+            
             TextBox6.Text = "";
             TextBox2.Text = "";
+            TextBox5.Text = "";
+            cmd.Parameters.AddWithValue("availableQuantity", DropDownList1.SelectedItem.Value);
+             cmd.ExecuteNonQuery();
+            con.Close();
 
-            string query = "select * from productList";
+            string query = "select * from productListt";
             SqlConnection con1 = new SqlConnection(mystring);
             SqlCommand cmd1 = new SqlCommand(query, con1);
             cmd.CommandText = query;
