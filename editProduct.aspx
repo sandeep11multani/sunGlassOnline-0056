@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-     <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
+    <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
 
     
     <style type="text/css" id="newStyle2">
@@ -52,9 +52,8 @@ li {
 }
 
         #form1 {
-            height: 611px;
-            width: 1010px;
-            margin-right: 0px;
+            height: 1029px;
+            width: 1653px;
         }
 
     </style> 
@@ -63,125 +62,99 @@ li {
 
     <form id="form1" runat="server">
                <ul>
-                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton5_Click">Home</asp:LinkButton> </li>
-  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton3_Click">Brands</asp:LinkButton>
+                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" Height="18px" Width="47px">Home</asp:LinkButton> </li>
+  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large">Brands</asp:LinkButton>
       </li>
-  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton2_Click">Products</asp:LinkButton>
+  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large">Products</asp:LinkButton>
       </li>
-  <li style="float:right">
-      <asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton4_Click">Logout</asp:LinkButton>
+  <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large">Logout</asp:LinkButton>
       </li>
                 
 </ul>
-        <div style="height: 36px">
-            <br />
-            <br />
-            <br />
-        </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Text="SUNGLASSES ONLINE"></asp:Label>
                <br />
-               <asp:Label ID="Label4" runat="server" Text="Product List" Font-Bold="True"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label1" runat="server" Text="Edit Product" Font-Bold="True" Font-Size="Large"></asp:Label>
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Button ID="Button1" runat="server" Text="Add Product" OnClick="Button1_Click" />
-               <br />
-               <br />
-               <asp:DataList ID="DataList1" runat="server">
-               </asp:DataList>
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label2" runat="server" Text="Brand Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+               <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" DataSourceID="SqlDataSource1" DataTextField="brandName" DataValueField="brandName">
+               </asp:DropDownList>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+               <asp:Label ID="Label4" runat="server" Text="Product Name"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+               &nbsp;
+               &nbsp;&nbsp;&nbsp;
                <br />
                <br />
-&nbsp;&nbsp;
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="969px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="176px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" style="margin-left: 0px" >
-            <%-- Theme Properties --%>
-            <Columns>
-                <asp:TemplateField HeaderText="Brand ID">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("productID") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandID" Text='<%# Eval("productID") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtFBrandIDFooter" Text='<%# Eval("productID") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Brand ">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("brand") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandName" Text='<%# Eval("brand") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtBrandNameFooter" Text='<%# Eval("brand") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="product Name">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("productName") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandName" Text='<%# Eval("productName") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtBrandNameFooter" Text='<%# Eval("productName") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Sales Price">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("salesPrice") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandName" Text='<%# Eval("salesPrice") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtBrandNameFooter" Text='<%# Eval("salesPrice") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-                <asp:TemplateField HeaderText="Available Quantity">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("availableQuantity") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandName" Text='<%# Eval("availableQuantity") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtBrandNameFooter" Text='<%# Eval("availableQuantity") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:ImageButton ImageUrl="~/image/edit.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="20px" Height="20px" />
-                        <asp:ImageButton ImageUrl="~/image/delete.png" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
-                        </ItemTemplate>
-                    <EditItemTemplate>
-                         <asp:ImageButton ImageUrl="~/image/save.png" runat="server" CommandName="Update" ToolTip="Update" Width="20px" Height="20px" />
-                        <asp:ImageButton ImageUrl="~/image/cancel.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
-                        </EditItemTemplate>
-                    <FooterTemplate>
-                    </FooterTemplate>
-                </asp:TemplateField>
-            </Columns>
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-            <SortedDescendingHeaderStyle BackColor="#93451F" />
-        </asp:GridView>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label3" runat="server" Text="Product ID"></asp:Label>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label6" runat="server" Text="Sales Price"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+               <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label7" runat="server" Text="Available Quantity"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+                   <asp:ListItem>1</asp:ListItem>
+                   <asp:ListItem>2</asp:ListItem>
+                   <asp:ListItem>3</asp:ListItem>
+                   <asp:ListItem>4</asp:ListItem>
+                   <asp:ListItem>5</asp:ListItem>
+                   <asp:ListItem>10</asp:ListItem>
+                   <asp:ListItem>15</asp:ListItem>
+                   <asp:ListItem>20</asp:ListItem>
+                   <asp:ListItem>25</asp:ListItem>
+                   <asp:ListItem>30</asp:ListItem>
+                   <asp:ListItem>35</asp:ListItem>
+                   <asp:ListItem>40</asp:ListItem>
+                   <asp:ListItem>45</asp:ListItem>
+                   <asp:ListItem>50</asp:ListItem>
+               </asp:DropDownList>
+               <br />
+               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update " />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;
+               <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Cancel" />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <br />
+               <br />
+               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 212px; top: 451px; position: absolute; height: 174px; width: 602px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="productID" DataSourceID="SqlDataSource2">
+                   <Columns>
+                       <asp:CommandField ShowSelectButton="True" />
+                       <asp:BoundField DataField="brand" HeaderText="brand" SortExpression="brand" />
+                       <asp:BoundField DataField="productID" HeaderText="productID" ReadOnly="True" SortExpression="productID" />
+                       <asp:BoundField DataField="productName" HeaderText="productName" SortExpression="productName" />
+                       <asp:BoundField DataField="salesprice" HeaderText="salesprice" SortExpression="salesprice" />
+                       <asp:BoundField DataField="availableQuantity" HeaderText="availableQuantity" SortExpression="availableQuantity" />
+                   </Columns>
+                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
+                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
+                   <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
+                   <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
+                   <SortedAscendingCellStyle BackColor="#FFF1D4" />
+                   <SortedAscendingHeaderStyle BackColor="#B95C30" />
+                   <SortedDescendingCellStyle BackColor="#F1E5CE" />
+                   <SortedDescendingHeaderStyle BackColor="#93451F" />
+               </asp:GridView>
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT [brandName] FROM [brandList]"></asp:SqlDataSource>
+               <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT * FROM [productListt]"></asp:SqlDataSource>
+               <asp:HiddenField ID="HiddenField1" runat="server" />
     </form>
 </body>
 </html>
