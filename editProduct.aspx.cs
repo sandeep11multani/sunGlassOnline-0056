@@ -11,11 +11,15 @@ namespace WebApplication7
 {
     public partial class editProduct : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-6ddcjgt;Initial Catalog=sunglassonline;Integrated Security=True";
-       
+        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string query = "select * from productListt";
+            if (!IsPostBack)
+                binddata();
+        }
+        private void binddata()
+        {
+            string query = "select * from [productList]";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;
@@ -24,124 +28,89 @@ namespace WebApplication7
             da.SelectCommand = cmd;
             DataSet ds = new DataSet();
             da.Fill(ds);
-             //GridView1.DataSource = ds;
-             //GridView1.DataBind();
+           GridView1.DataSource = ds;
+            GridView1.DataBind();
             con.Close();
-            if (!Page.IsPostBack)
-            {
-                BindData();
-            }
+
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            string query = "UPDATE productListt SET productID='" + TextBox2.Text + "',productName='" + TextBox6.Text + "',salesprice='" + TextBox5.Text + "',availableQuantity='" + DropDownList1.SelectedValue + "', brand = '" + DropDownList2.SelectedValue + "' where productName='"+HiddenField1.Value.ToString()+"'";
-
-
             SqlConnection con = new SqlConnection(mystring);
-            SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = query;
-            cmd.Connection = con;
-            cmd.Parameters.AddWithValue("brand", DropDownList2.SelectedItem.Value);
-            TextBox6.Text = "";
-            TextBox2.Text = "";
-            TextBox5.Text = "";
-            cmd.Parameters.AddWithValue("availableQuantity", DropDownList1.SelectedItem.Value);
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd;
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-           // GridView1.DataSource = ds;
-            //GridView1.DataBind();
-            con.Close();
-        }
-
-
-        public void BindData()
-        {
-            SqlConnection con = new SqlConnection(mystring);
-            SqlCommand cmd = new SqlCommand();
-            con = new SqlConnection(mystring);
-            cmd.CommandText = "Select * from productListt";
-            cmd.Connection = con;
-            SqlDataAdapter da = new SqlDataAdapter();
-            da = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            da.Fill(ds);
             con.Open();
-            cmd.ExecuteNonQuery();
-           // GridView1.DataSource = ds;
-            //GridView1.DataBind();
-            con.Close();
-        }
-        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
 
-            GridView1.PageIndex = e.NewPageIndex;   
-            BindData();
+            string a = "update [productList] set productID= '" + TextBox2.Text.ToString()
+                + "', brand = '" + DropDownList2.Text.ToString() 
+                +"', productName= '"+ TextBox6.Text.ToString()
+                +"', salesPrice= '" + TextBox5.Text.ToString()
+                +"', availableQuantity= '" +DropDownList1.Text.ToString()
+                +"' WHERE productID= '" + HiddenField1.Value.ToString() + "';";
+            SqlCommand cmd = new SqlCommand(a, con);
+            cmd.ExecuteNonQuery();
+            binddata();
+            TextBox5.Text = "";
+            TextBox2.Text = "";
+            TextBox6.Text = "";
         }
 
         protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-            {
-            DropDownList2.SelectedValue = GridView1.SelectedRow.Cells[1].Text;
-            TextBox2.Text = GridView1.SelectedRow.Cells[2].Text;
-            TextBox5.Text = GridView1.SelectedRow.Cells[4].Text;
-            TextBox6.Text = GridView1.SelectedRow.Cells[3].Text;
-            DropDownList1.SelectedValue = GridView1.SelectedRow.Cells[5].Text;
-        }
-
-        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            SqlConnection con = new SqlConnection(mystring);
-            SqlCommand cmd = new SqlCommand();
-            con = new SqlConnection(mystring);
-            cmd.Connection = con;
-            cmd.CommandText = "Delete from productListt where productID='" + TextBox2.Text + "'";
-            con.Open();
-            cmd.ExecuteNonQuery();
-            con.Close();
-            BindData();
-        }
+            
 
-        protected void GridView1_RowEditing(object sender, GridViewEditEventArgs e)
-        {
-            GridView1.EditIndex = e.NewEditIndex;
-            BindData();
-        }
-
-        protected void GridView1_RowUpdating(object sender, GridViewUpdateEventArgs e)
-        {
-            SqlConnection con = new SqlConnection(mystring);
-            SqlCommand cmd = new SqlCommand();
-            con = new SqlConnection(mystring);
-            DropDownList DropDownList2 = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("brand");
-            TextBox Textbox6 = (TextBox)GridView1.Rows[e.RowIndex].FindControl("productName");
-            TextBox Textbox2 = (TextBox)GridView1.Rows[e.RowIndex].FindControl("productID");
-            TextBox Textbox5 = (TextBox)GridView1.Rows[e.RowIndex].FindControl("salesPrice");
-            DropDownList DropDownList1 = (DropDownList)GridView1.Rows[e.RowIndex].FindControl("availableQuantity");
-            cmd.Connection = con;
-            cmd.CommandText = "UPDATE productListt SET productID='" + TextBox2.Text + "',productName='" + TextBox6.Text + "',salesprice='" + TextBox5.Text + "',availableQuantity='" + DropDownList1.SelectedItem + "' WHERE brand = '" + DropDownList2.SelectedItem + "'";
-            cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
-            GridView1.EditIndex = -1;
-            BindData();
-            con.Close();
-        }
-
-        protected void GridView1_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
-        {
-            GridView1.EditIndex = -1;
-            BindData();
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
-            {
+        {
 
+        }
+
+        protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+           
+        }
+
+        protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Deletee")
+            {
+                int rowID = Convert.ToInt32(e.CommandArgument);
+                DropDownList1.Text = GridView1.Rows[rowID].Cells[4].Text;
+                TextBox5.Text = GridView1.Rows[rowID].Cells[3].Text;
+                TextBox2.Text = GridView1.Rows[rowID].Cells[1].Text;
+                TextBox6.Text = GridView1.Rows[rowID].Cells[2].Text;
+                DropDownList2.Text = GridView1.Rows[rowID].Cells[0].Text;
+                SqlConnection con = new SqlConnection(mystring);
+                con.Open();
+                string delete = "delete from [productList] where productID = '" + TextBox2.Text.ToString() + "'";
+                SqlCommand cmd = new SqlCommand(delete, con);
+                cmd.ExecuteNonQuery();
+                Response.Write("deleted successfully");
+                binddata();
             }
 
-            protected void DropDownList2_SelectedIndexChanged(object sender, EventArgs e)
+            if (e.CommandName == "Editt")
             {
+                int rowID = Convert.ToInt32(e.CommandArgument);
+                DropDownList2.Text = GridView1.Rows[rowID].Cells[0].Text;
+                TextBox2.Text = GridView1.Rows[rowID].Cells[1].Text;
+
+                TextBox6.Text = GridView1.Rows[rowID].Cells[2].Text;
+                TextBox5.Text = GridView1.Rows[rowID].Cells[3].Text;
+                DropDownList1.Text = GridView1.Rows[rowID].Cells[4].Text;
+
+                HiddenField1.Value = TextBox2.Text;
 
             }
         }
+
+        protected void LinkButton4_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/login.aspx");
+        }
+    }
     }

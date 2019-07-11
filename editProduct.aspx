@@ -56,6 +56,15 @@ li {
             width: 1653px;
         }
 
+        .auto-style1 {
+            z-index: 1;
+            left: 245px;
+            top: 455px;
+            position: absolute;
+            height: 174px;
+            width: 602px;
+        }
+
     </style> 
 </head>
 <body class="newStyle3">
@@ -67,21 +76,27 @@ li {
       </li>
   <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large">Products</asp:LinkButton>
       </li>
-  <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large">Logout</asp:LinkButton>
+  <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton4_Click">Logout</asp:LinkButton>
       </li>
                 
 </ul>
                <br />
+               <br />
+               <br />
+               <br />
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:newPConnectionString %>" SelectCommand="SELECT [brand] FROM [productList]"></asp:SqlDataSource>
+               <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:newPConnectionString %>" SelectCommand="SELECT * FROM [productList]"></asp:SqlDataSource>
+               <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Edit Product" Font-Bold="True" Font-Size="Large"></asp:Label>
+               <asp:Label ID="Label1" runat="server" Text="Add Product" Font-Bold="True" Font-Size="Large"></asp:Label>
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label2" runat="server" Text="Brand Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-               <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" DataSourceID="SqlDataSource1" DataTextField="brandName" DataValueField="brandName">
+               <asp:DropDownList ID="DropDownList2" runat="server" OnSelectedIndexChanged="DropDownList2_SelectedIndexChanged" DataSourceID="SqlDataSource1" DataTextField="brand" DataValueField="brand">
                </asp:DropDownList>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;<br />
@@ -132,15 +147,33 @@ li {
                <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Cancel" />
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
-               <br />
-               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 212px; top: 451px; position: absolute; height: 174px; width: 602px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="productID" DataSourceID="SqlDataSource2">
+               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="productID" OnRowCommand="GridView1_RowCommand1" CssClass="auto-style1">
                    <Columns>
-                       <asp:CommandField ShowSelectButton="True" />
                        <asp:BoundField DataField="brand" HeaderText="brand" SortExpression="brand" />
-                       <asp:BoundField DataField="productID" HeaderText="productID" ReadOnly="True" SortExpression="productID" />
+                       <asp:BoundField DataField="productID" HeaderText="productID" SortExpression="productID" />
                        <asp:BoundField DataField="productName" HeaderText="productName" SortExpression="productName" />
                        <asp:BoundField DataField="salesprice" HeaderText="salesprice" SortExpression="salesprice" />
                        <asp:BoundField DataField="availableQuantity" HeaderText="availableQuantity" SortExpression="availableQuantity" />
+               
+                                
+                                <asp:TemplateField HeaderText="Edit">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                        <asp:ImageButton ID="ImageButton1" CommandName="Editt" CommandArgument='<%# Container.DataItemIndex %>' runat="server" ImageUrl="~/image/ed.png" height="30px"/>
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Delete">
+                                    <EditItemTemplate>
+                                        <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                                    </EditItemTemplate>
+                                    <ItemTemplate>
+                                       <asp:ImageButton ID="ImageButton2" CommandName="Deletee" CommandArgument='<%# Container.DataItemIndex %>' runat="server" ImageUrl="~/image/delete.png" Height="30px" />
+                                    </ItemTemplate>
+                                </asp:TemplateField>
+                                
+                           
                    </Columns>
                    <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
                    <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
@@ -152,8 +185,6 @@ li {
                    <SortedDescendingCellStyle BackColor="#F1E5CE" />
                    <SortedDescendingHeaderStyle BackColor="#93451F" />
                </asp:GridView>
-               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT [brandName] FROM [brandList]"></asp:SqlDataSource>
-               <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT * FROM [productListt]"></asp:SqlDataSource>
                <asp:HiddenField ID="HiddenField1" runat="server" />
     </form>
 </body>
