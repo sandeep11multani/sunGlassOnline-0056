@@ -76,33 +76,34 @@ li {
                <br />
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Edit Brand" Font-Bold="True"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label1" runat="server" Text="Edit Brand" Font-Bold="True" Font-Size="Large"></asp:Label>
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label2" runat="server" Text="Brand Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged"></asp:TextBox>
+               <asp:TextBox ID="TextBox1" runat="server" OnTextChanged="TextBox1_TextChanged" Height="30px" Width="124px"></asp:TextBox>
                <br />
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label3" runat="server" Text=" Brand ID"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged"></asp:TextBox>
+               <asp:TextBox ID="TextBox2" runat="server" OnTextChanged="TextBox2_TextChanged" Height="30px" Width="123px"></asp:TextBox>
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="update" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="update" BackColor="#336699" ForeColor="White" Height="28px" Width="61px" />
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="cancel" style="height: 26px" />
+               <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="cancel" BackColor="#336699" ForeColor="White" Height="28px" Width="61px" />
                <br />
                
                <br />
                <br />
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="902px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCommand="GridView1_RowCommand1" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="198px"  >
+               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="902px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowCommand="GridView1_RowCommand1" CellPadding="4" Height="198px" ForeColor="#333333" GridLines="None"  >
             <%-- Theme Properties --%>
+                   <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                <Columns>
                                 <asp:BoundField DataField="brandId" HeaderText="Brand ID" SortExpression="brandId" />
                                 <asp:BoundField DataField="brandName" HeaderText="Brand Name" SortExpression="brandName" />
@@ -125,15 +126,16 @@ li {
                                 </asp:TemplateField>
                                 
                             </Columns>
-                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                   <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                   <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                   <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                   <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                   <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                   <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                   <SortedDescendingHeaderStyle BackColor="#93451F" />
+                   <EditRowStyle BackColor="#999999" />
+                   <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                   <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#284775" />
+                   <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                   <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                   <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                   <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                   <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                   <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ></asp:SqlDataSource>
                <br />

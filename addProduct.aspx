@@ -56,18 +56,27 @@ li {
             width: 1214px;
         }
 
+        .auto-style1 {
+            z-index: 1;
+            left: 185px;
+            top: 408px;
+            position: absolute;
+            height: 174px;
+            width: 708px;
+        }
+
     </style> 
 </head>
 <body class="newStyle3">
 
     <form id="form1" runat="server">
                <ul>
-                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" Height="18px" Width="47px">Home</asp:LinkButton> </li>
-  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large">Brands</asp:LinkButton>
+                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" Height="18px" Width="47px" OnClick="LinkButton5_Click">Home</asp:LinkButton> </li>
+  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton3_Click">Brands</asp:LinkButton>
       </li>
-  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large">Products</asp:LinkButton>
+  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton2_Click">Products</asp:LinkButton>
       </li>
-  <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large">Logout</asp:LinkButton>
+  <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton4_Click">Logout</asp:LinkButton>
       </li>
                 
 </ul>
@@ -75,9 +84,9 @@ li {
                <br />
                <br />
                <br />
-               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT [brandName] FROM [brandList]"></asp:SqlDataSource>
-               &nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Add Product" Font-Bold="True"></asp:Label>
+               <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:newPConnectionString2 %>" SelectCommand="SELECT [brandName] FROM [brandList]"></asp:SqlDataSource>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label1" runat="server" Text="Add Product" Font-Bold="True" Font-Size="Large"></asp:Label>
                <br />
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -92,7 +101,7 @@ li {
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label4" runat="server" Text="Product Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox6" runat="server" Height="30px" Width="123px"></asp:TextBox>
                &nbsp;
                &nbsp;&nbsp;&nbsp;
                <br />
@@ -100,7 +109,7 @@ li {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label3" runat="server" Text="Product ID"></asp:Label>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-               <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+               <asp:TextBox ID="TextBox2" runat="server" Height="30px" Width="124px"></asp:TextBox>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
@@ -109,11 +118,11 @@ li {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label6" runat="server" Text="Sales Price"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+               <asp:TextBox ID="TextBox5" runat="server" Height="30px" Width="124px"></asp:TextBox>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label7" runat="server" Text="Available Quantity"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:DropDownList ID="DropDownList1" runat="server">
+               <asp:DropDownList ID="DropDownList1" runat="server" Height="18px" Width="82px">
                    <asp:ListItem>5</asp:ListItem>
                    <asp:ListItem>10</asp:ListItem>
                    <asp:ListItem>15</asp:ListItem>
@@ -127,20 +136,47 @@ li {
                </asp:DropDownList>
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" BackColor="#336699" BorderColor="White" ForeColor="White" Height="31px" Width="100px" />
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
-               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 257px; top: 543px; position: absolute; height: 174px; width: 602px">
-                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                   <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                   <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                   <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                   <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                   <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                   <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                   <SortedDescendingHeaderStyle BackColor="#93451F" />
+               <asp:GridView ID="GridView1" runat="server" CellPadding="4" AutoGenerateColumns="False" CssClass="auto-style1" OnRowCommand="GridView1_RowCommand" OnRowDeleting="GridView1_RowDeleting" ForeColor="#333333" GridLines="None">
+                   <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                  <Columns>
+                              <asp:TemplateField HeaderText="Product ID">
+                                <ItemTemplate>
+                                    <asp:Label ID="stbl" runat="server" Text='<%# Eval("productID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                <asp:BoundField DataField="brand" HeaderText="Brand" SortExpression="brand" />
+                                <asp:BoundField DataField="productName" HeaderText="Product Name" SortExpression="productName" />
+                                <asp:BoundField DataField="salesPrice" HeaderText="Sales Price" SortExpression="salesPrice" />
+                      <asp:BoundField DataField="availableQuantity" HeaderText="Available Quantity" SortExpression="availableQuantity" />          
+                      
+                            <asp:TemplateField HeaderText="Edit">
+                                    
+                                    <ItemTemplate>
+                                        <a href="brandEdit.aspx"><asp:ImageButton ID="ImageButton1" CommandName="Editt" CommandArgument='<%# Container.DataItemIndex %>' runat="server" ImageUrl="~/image/ed.png" height="30px"/>
+                                   </a>
+                                            </ItemTemplate>
+                                </asp:TemplateField>
+                      <asp:TemplateField HeaderText="Delete">
+                          <ItemTemplate>
+                              <asp:ImageButton ID ="b2" runat="server" CommandName="delete" ImageUrl="~/image/delete.png" Height="30px" />
+                          </ItemTemplate>
+                      </asp:TemplateField>
+                                
+                            </Columns>
+                   <EditRowStyle BackColor="#999999" />
+                   <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                   <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#284775" />
+                   <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                   <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                   <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                   <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                   <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                   <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                </asp:GridView>
     </form>
 </body>

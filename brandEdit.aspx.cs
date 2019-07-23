@@ -14,10 +14,10 @@ namespace WebApplication7
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-                bindDataToGridView();
+                bindData();
         }
 
-        private void bindDataToGridView()
+        private void bindData()
         {
             string query = "select * from [brandList]";
             SqlConnection con = new SqlConnection(mystring);
@@ -55,14 +55,14 @@ namespace WebApplication7
                 + "' WHERE brandID='" + HiddenField1.Value.ToString() + "';";
             SqlCommand cmd = new SqlCommand(a, con);
             cmd.ExecuteNonQuery();
-            bindDataToGridView();
+            bindData();
             TextBox1.Text = "";
             TextBox2.Text = "";
         }
 
         protected void LinkButton5_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/inventory.aspx");
         }
 
         protected void TextBox1_TextChanged(object sender, EventArgs e)
@@ -77,7 +77,7 @@ namespace WebApplication7
 
         protected void LinkButton3_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Brands List.aspx");
         }
 
         protected void LinkButton4_Click(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace WebApplication7
 
         protected void LinkButton2_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/productList.aspx");
         }
 
         protected void GridView1_RowCommand1(object sender, GridViewCommandEventArgs e)
@@ -104,7 +104,7 @@ namespace WebApplication7
                 SqlCommand cmd = new SqlCommand(delete, con);
                 cmd.ExecuteNonQuery();
                 Response.Write("deleted successfully");
-                bindDataToGridView();
+                bindData();
             }
 
             if (e.CommandName == "Editt")
