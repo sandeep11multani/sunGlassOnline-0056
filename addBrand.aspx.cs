@@ -11,11 +11,16 @@ namespace WebApplication7
 {
     public partial class addBrand : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-6ddcjgt;Initial Catalog=sunglassonline;Integrated Security=True";
+        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-           string query = "select * from brandList";
+            if (!IsPostBack)
+                bindData();
+        }
+            protected void bindData()
+            { 
+            string query = "select * from brandList";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;
@@ -42,23 +47,12 @@ namespace WebApplication7
             con.Open();
             SqlCommand cmd = con.CreateCommand();
             cmd.CommandType = CommandType.Text;
-           cmd.CommandText = " insert into brandList values('" + TextBox3.Text + "','"+TextBox2.Text+ "')";
+           cmd.CommandText = " insert into brandList values('" + TextBox2.Text + "','"+TextBox3.Text+ "')";
             cmd.ExecuteNonQuery();
             con.Close();
             TextBox3.Text = "";
             TextBox2.Text = "";
-            string query = "select * from brandList";
-            SqlConnection con1 = new SqlConnection(mystring);
-            SqlCommand cmd1 = new SqlCommand(query,con1);
-            cmd.CommandText = query;
-            cmd.Connection = con1;
-            SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = cmd1;
-            DataSet ds = new DataSet();
-            da.Fill(ds);
-            GridView1.DataSource = ds;
-            GridView1.DataBind();
-            con1.Close();
+            bindData();
 
         }
 
@@ -110,17 +104,36 @@ namespace WebApplication7
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/WebForm2.aspx");
+            Response.Redirect("~/login.aspx");
         }
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
+            
+        }
+
+        
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Label l1 = GridView1.Rows[e.RowIndex].FindControl("stbl") as Label;
+            SqlConnection con = new SqlConnection(mystring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "Delete from brandList where brandID=@id1";
+            cmd.Parameters.AddWithValue("@id1", l1.Text);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            bindData();
 
         }
 
-        protected void GridView1_SelectedIndexChanged2(object sender, EventArgs e)
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "Editt")
+            {
+                Response.Redirect("~/brandEdit.aspx");
+            }
         }
     }
 }

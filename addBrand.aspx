@@ -60,6 +60,15 @@ li {
             position: fixed;
         }
 
+        .auto-style1 {
+            z-index: 1;
+            left: 168px;
+            top: 369px;
+            position: absolute;
+            height: 221px;
+            width: 671px;
+        }
+
     </style> 
 </head>
 <body class="newStyle3">
@@ -80,41 +89,74 @@ li {
                <br />
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Add Brand" style="font-weight: 700"></asp:Label>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label1" runat="server" Text="Add Brand" style="font-weight: 700" Font-Size="Large"></asp:Label>
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label2" runat="server" Text="Brand Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged"></asp:TextBox>
+               <asp:Label ID="Label2" runat="server" Text="Brand ID"></asp:Label>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:TextBox ID="TextBox2" runat="server" Height="30px" Width="126px"></asp:TextBox>
                <br />
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label3" runat="server" Text=" Brand ID"></asp:Label>
+               <asp:Label ID="Label3" runat="server" Text=" Brand Name"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+               <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged" Height="32px" Width="124px"></asp:TextBox>
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Add" BackColor="#336699" ForeColor="White" Height="37px" Width="109px" />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
                <br />
-               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" style="z-index: 1; left: 328px; top: 379px; position: absolute; height: 221px; width: 671px">
-                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                   <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                   <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                   <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                   <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                   <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                   <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                   <SortedDescendingHeaderStyle BackColor="#93451F" />
+               <asp:GridView ID="GridView1" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" AutoGenerateColumns="False" OnRowDeleting="GridView1_RowDeleting" OnRowCommand="GridView1_RowCommand" CssClass="auto-style1">
+                  <Columns>
+                            <asp:TemplateField HeaderText="Brand ID">
+                                <ItemTemplate>
+                                    <asp:Label ID="stbl" runat="server" Text='<%# Eval("brandID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Brand Name">
+                                <ItemTemplate>
+                                    <asp:Label ID="stbl2" runat="server" Text='<%# Eval("brandName") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Edit">
+                                    
+                                    <ItemTemplate>
+                                        <a href="brandEdit.aspx"><asp:ImageButton ID="ImageButton1" CommandName="Editt" CommandArgument='<%# Container.DataItemIndex %>' runat="server" ImageUrl="~/image/ed.png" height="30px"/>
+                                   </a>
+                                            </ItemTemplate>
+                                </asp:TemplateField>
+                      <asp:TemplateField HeaderText="Delete">
+                          <ItemTemplate>
+                              <asp:ImageButton ID ="b2" runat="server" CommandName="delete" ImageUrl="~/image/delete.png" Height="30px" />
+                          </ItemTemplate>
+                      </asp:TemplateField>
+                       
+     
+                         
+
+                     
+                            
+                                
+                            </Columns>
+                   <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                   <EditRowStyle BackColor="#999999" />
+                   <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                   <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#284775" />
+                   <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                   <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                   <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                   <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                   <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                   <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                </asp:GridView>
                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:sunglassonlineConnectionString %>" SelectCommand="SELECT * FROM [brandList]"></asp:SqlDataSource>
                <br />
-               <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
+               <br />
         </form>
     </body>
     </html>    
