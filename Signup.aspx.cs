@@ -19,7 +19,7 @@ namespace Sunglasses_Online
     public partial class Signup : System.Web.UI.Page
     {
         // private string code;
-        public string mystring = "Data Source=desktop-9huanl2\\khehra05;Initial Catalog=newP;Integrated Security=True";
+        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,72 +28,81 @@ namespace Sunglasses_Online
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ExampleCaptcha.UserInputID = CaptchaCodeTextBox.ClientID;
-            if (IsPostBack)
+            // Here I will validate Captcha 
+            bool isCaptchaValid = false;
+            if (Session["CaptchaText"] != null && Session["CaptchaText"].ToString() == txtCaptchaText.Text)
             {
-                // validate the Captcha to check we're not dealing with a bot 
-                bool isHuman = ExampleCaptcha.Validate(CaptchaCodeTextBox.Text);
+                isCaptchaValid = true;
+            }
 
-                CaptchaCodeTextBox.Text = null; // clear previous user input 
+            if (isCaptchaValid)
+            {
 
-                if (!isHuman)
+                lblMessage.Text = "Captcha Validation Success";
+                lblMessage.ForeColor = Color.Green;
+
+                using (SqlConnection con = new SqlConnection(mystring))
                 {
+                    con.Open();
 
-                    // TODO: Captcha validation failed, show error message  
-                }
-                else
-                {
-                    // TODO: Captcha validation passed, proceed with protected action 
-                    MvcCaptcha.ResetCaptcha("ExampleCaptcha");
+                    bool exists = false;
+
+                    // create a command to check if the username exists
+                    using (SqlCommand cmd = new SqlCommand("select count(*) from signup where username = @username", con))
+                    {
+                        cmd.Parameters.AddWithValue("username", TextBox1.Text);
+                        exists = (int)cmd.ExecuteScalar() > 0;
+                    }
+
+                    // if exists, show a message error
+                    if (exists)
+                    {
+                        Label6.Text = "This username has already been used.";
+                        Label6.Visible = true;
+                    }
+                    else
+                    {
+                        using (SqlConnection sqlCon = new SqlConnection(mystring))
+                        {
+                            sqlCon.Open();
+                            SqlCommand sqlCmd = new SqlCommand("user", sqlCon);
+                            sqlCmd.CommandType = CommandType.StoredProcedure;
+
+                            sqlCmd.Parameters.AddWithValue("@username", TextBox1.Text.Trim());
+                            sqlCmd.Parameters.AddWithValue("@password", TextBox2.Text.Trim());
+                            sqlCmd.Parameters.AddWithValue("@Cpassword", TextBox3.Text.Trim());
+                            sqlCmd.ExecuteNonQuery();
+                            // MessageBox.Show("Registration is successfull");
+                            Clear();
+
+                        }
+                        Response.Redirect("~/login.aspx");
+                    }
                 }
             }
-            if (TextBox1.Text == "" || TextBox2.Text == "") ;
-            // MessageBox.Show("please fill mandatory fields");
-            else if (TextBox2.Text != TextBox3.Text) ;
-            // MessageBox.Show("Password do not match");
-            else
-            {
-                using (SqlConnection sqlCon = new SqlConnection(mystring))
-                {
-                    sqlCon.Open();
-                    SqlCommand sqlCmd = new SqlCommand("user", sqlCon);
-                    sqlCmd.CommandType = CommandType.StoredProcedure;
 
-                    sqlCmd.Parameters.AddWithValue("@Cpassword", TextBox3.Text.Trim());
 
-                    sqlCmd.Parameters.AddWithValue("@username", TextBox1.Text.Trim());
-                    sqlCmd.Parameters.AddWithValue("@password", TextBox2.Text.Trim());
-                    sqlCmd.ExecuteNonQuery();
-                    // MessageBox.Show("Registration is successfull");
-                    Clear();
-                    Response.Redirect("~/WebForm2.aspx");
+            lblMessage.Text = "Captcha Validation Failed";
+            lblMessage.ForeColor = Color.Red;
 
-                }
-            }
         }
-        void Clear()
+                    void Clear()
+                    {
+                        TextBox1.Text = TextBox2.Text = TextBox3.Text = "";
+
+                    }
+
+        protected void txtCaptchaText_TextChanged(object sender, EventArgs e)
         {
-            TextBox1.Text = TextBox2.Text = TextBox3.Text = "";
 
         }
 
-        /*
-        SqlConnection con = new SqlConnection(mystring);
-        con.Open();
-        if (con.State == System.Data.ConnectionState.Open)
-        {
-            string a = "insert into signup (username, password,confirmpassword) values(" + TextBox1.Text.ToString() + "," + TextBox2.Text.ToString() + "," + TextBox3.Text.ToString() + ")";
-            SqlCommand cmd = new SqlCommand(a, con);
-            cmd.ExecuteNonQuery();
-            Response.Write("congratulations you did signup successfully");
-            
-              Response.Redirect("~/Login.aspx");
-        }*/
-
-
-    }
+       
     }
 
+
+}
+        
 
  
 

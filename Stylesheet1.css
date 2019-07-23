@@ -2,12 +2,12 @@
     background-image: url('image/sun.jpg');
     background-position: 50% top;
     background-repeat: no-repeat;
-    background-attachment: inherit;
-    width:1133px;
+   
+    background-attachment: fixed;
+    width: 1792px;
     margin-left: 0px;
-    height: 700px;
-    margin-bottom: 0;
-}
+    height: 920px;
+    }
 
 div {
     font: 80% Arial, Helvetica, sans-serif;
