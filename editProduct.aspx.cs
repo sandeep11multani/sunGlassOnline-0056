@@ -19,7 +19,7 @@ namespace WebApplication7
         }
         private void binddata()
         {
-            string query = "select * from [productList]";
+            string query = "select * from productList";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;
@@ -111,6 +111,28 @@ namespace WebApplication7
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/login.aspx");
+        }
+
+        protected void LinkButton5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/inventory.aspx");
+        }
+
+        protected void LinkButton3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Brands List.aspx");
+        }
+
+        protected void LinkButton2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/productList.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            TextBox2.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
         }
     }
     }

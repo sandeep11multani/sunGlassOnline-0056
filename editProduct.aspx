@@ -71,10 +71,10 @@ li {
 
     <form id="form1" runat="server">
                <ul>
-                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" Height="18px" Width="47px">Home</asp:LinkButton> </li>
-  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large">Brands</asp:LinkButton>
+                <li><asp:LinkButton ID="LinkButton5" runat="server" Font-Bold="True" Font-Size="Large" Height="18px" Width="47px" OnClick="LinkButton5_Click">Home</asp:LinkButton> </li>
+  <li><asp:LinkButton ID="LinkButton3" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton3_Click">Brands</asp:LinkButton>
       </li>
-  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large">Products</asp:LinkButton>
+  <li><asp:LinkButton ID="LinkButton2" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton2_Click">Products</asp:LinkButton>
       </li>
   <li style="float:right"><asp:LinkButton ID="LinkButton4" runat="server" Font-Bold="True" Font-Size="Large" OnClick="LinkButton4_Click">Logout</asp:LinkButton>
       </li>
@@ -89,7 +89,7 @@ li {
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Label ID="Label1" runat="server" Text="Add Product" Font-Bold="True" Font-Size="Large"></asp:Label>
+               <asp:Label ID="Label1" runat="server" Text="Edit Product" Font-Bold="True" Font-Size="Large"></asp:Label>
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
@@ -102,7 +102,7 @@ li {
 &nbsp;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
                <asp:Label ID="Label4" runat="server" Text="Product Name"></asp:Label>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="TextBox6" runat="server" Height="30px" Width="125px"></asp:TextBox>
                &nbsp;
                &nbsp;&nbsp;&nbsp;
                <br />
@@ -110,7 +110,7 @@ li {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label3" runat="server" Text="Product ID"></asp:Label>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+               <asp:TextBox ID="TextBox2" runat="server" Height="30px" Width="124px"></asp:TextBox>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
@@ -119,11 +119,11 @@ li {
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label6" runat="server" Text="Sales Price"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
-               <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+               <asp:TextBox ID="TextBox5" runat="server" Height="30px" Width="124px"></asp:TextBox>
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:Label ID="Label7" runat="server" Text="Available Quantity"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
+               <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" Height="19px" Width="71px">
                    <asp:ListItem>1</asp:ListItem>
                    <asp:ListItem>2</asp:ListItem>
                    <asp:ListItem>3</asp:ListItem>
@@ -141,13 +141,15 @@ li {
                </asp:DropDownList>
                <br />
                <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update " />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Update " BackColor="#336699" ForeColor="White" Height="30px" Width="85px" />
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="cancel" BackColor="#336699" ForeColor="White" Height="29px" Width="85px" />
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                &nbsp;
-               <asp:Button ID="Button2" runat="server" OnClick="Button1_Click" Text="Cancel" />
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
-               <asp:GridView ID="GridView1" runat="server" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="productID" OnRowCommand="GridView1_RowCommand1" CssClass="auto-style1">
+               <asp:GridView ID="GridView1" runat="server" CellPadding="4" OnSelectedIndexChanged="GridView1_SelectedIndexChanged" AutoGenerateColumns="False" DataKeyNames="productID" OnRowCommand="GridView1_RowCommand1" CssClass="auto-style1" ForeColor="#333333" GridLines="None">
+                   <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                    <Columns>
                        <asp:BoundField DataField="brand" HeaderText="brand" SortExpression="brand" />
                        <asp:BoundField DataField="productID" HeaderText="productID" SortExpression="productID" />
@@ -175,15 +177,16 @@ li {
                                 
                            
                    </Columns>
-                   <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-                   <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-                   <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-                   <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-                   <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-                   <SortedAscendingCellStyle BackColor="#FFF1D4" />
-                   <SortedAscendingHeaderStyle BackColor="#B95C30" />
-                   <SortedDescendingCellStyle BackColor="#F1E5CE" />
-                   <SortedDescendingHeaderStyle BackColor="#93451F" />
+                   <EditRowStyle BackColor="#999999" />
+                   <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                   <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#284775" />
+                   <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                   <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                   <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                   <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                   <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                   <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
                </asp:GridView>
                <asp:HiddenField ID="HiddenField1" runat="server" />
     </form>

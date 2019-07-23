@@ -10,10 +10,10 @@ namespace WebApplication7
 {
     public partial class inventory : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-9huanl2\\khehra05;Initial Catalog=newP;Integrated Security=True";
+        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string query = "select * from brandDetails";
+            string query = "select brand as 'Brand Name', availableQuantity as 'Number of Products' from productList";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;
@@ -25,7 +25,7 @@ namespace WebApplication7
             GridView1.DataSource = ds;
             GridView1.DataBind();
             con.Close();
-            string query2 = "select * from productDetails";
+            string query2 = "select  brand as 'Brand Name', productName as 'Product Name' , availableQuantity as 'Available Quantity'from productList ";
             SqlConnection con1 = new SqlConnection(mystring);
             SqlCommand cmd1 = new SqlCommand();
             cmd.CommandText = query2;
@@ -77,7 +77,7 @@ namespace WebApplication7
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/WebForm2.aspx");
+            Response.Redirect("~/login.aspx");
         }
     }
 }
