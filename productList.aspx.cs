@@ -11,8 +11,13 @@ namespace WebApplication7
 {
     public partial class productList : System.Web.UI.Page
     {
-        public string mystring = "Data Source=desktop-9huanl2\\khehra05;Initial Catalog=newP;Integrated Security=True";
+        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+                bindData();
+        }
+        public void bindData()
         {
             string query = "select * from productList";
             SqlConnection con = new SqlConnection(mystring);
@@ -26,8 +31,8 @@ namespace WebApplication7
             GridView1.DataSource = ds;
             GridView1.DataBind();
             con.Close();
-
         }
+
 
         protected void GridView1_SelectedIndexChanged1(object sender, EventArgs e)
         {
@@ -56,7 +61,28 @@ namespace WebApplication7
 
         protected void LinkButton4_Click(object sender, EventArgs e)
         {
-            Response.Redirect("~/WebForm2.aspx");
+            Response.Redirect("~/login.aspx");
+        }
+
+        protected void GridView1_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            Label l1 = GridView1.Rows[e.RowIndex].FindControl("stbl") as Label;
+            SqlConnection con = new SqlConnection(mystring);
+            con.Open();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "Delete from productList where productID=@id1";
+            cmd.Parameters.AddWithValue("@id1", l1.Text);
+            cmd.Connection = con;
+            cmd.ExecuteNonQuery();
+            bindData();
+        }
+
+        protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Editt")
+            {
+                Response.Redirect("~/editProduct.aspx");
+            }
         }
     }
 }
