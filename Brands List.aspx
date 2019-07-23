@@ -78,16 +78,20 @@ li {
             <br />
             <br />
         </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
             <asp:Label ID="Label3" runat="server" Font-Bold="True" Font-Overline="False" Font-Size="X-Large" Text="SUNGLASSES ONLINE"></asp:Label>
                <br />
-               <asp:Label ID="Label4" runat="server" Text="Brands List" Font-Bold="True"></asp:Label>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <asp:Label ID="Label4" runat="server" Text="Brands List" Font-Bold="True" Font-Size="Large"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-               <asp:Button ID="Button1" runat="server" Text="Add Brand" OnClick="Button1_Click" />
+               <asp:Button ID="Button1" runat="server" Text="Add Brand" OnClick="Button1_Click" BackColor="#336699" ForeColor="White" Height="35px" Width="100px" />
                <br />
                <br />
                <asp:DataList ID="DataList1" runat="server">
@@ -98,57 +102,45 @@ li {
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <br />
                <br />
-&nbsp;&nbsp;
-               <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="969px" BackColor="#DEBA84" BorderColor="#DEBA84" BorderStyle="None" BorderWidth="1px" CellPadding="3" CellSpacing="2" Height="176px" OnSelectedIndexChanged="GridView1_SelectedIndexChanged1" >
+&nbsp;&nbsp;<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" Width="879px" OnRowCommand="GridView1_RowCommand" CellPadding="4" OnRowDeleting="GridView1_RowDeleting" ForeColor="#333333" GridLines="None"   >
             <%-- Theme Properties --%>
-            <Columns>
-                <asp:TemplateField HeaderText="Brand ID">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("brandID") %>'  runat="server" />
+                   <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+               <Columns>
+                               <asp:TemplateField HeaderText="Brand ID">
+                                <ItemTemplate>
+                                    <asp:Label ID="stbl" runat="server" Text='<%# Eval("brandID") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Brand Name">
+                                <ItemTemplate>
+                                    <asp:Label ID="stbl2" runat="server" Text='<%# Eval("brandName") %>' />
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                                <asp:TemplateField HeaderText="Edit">
+                                    
+                                    <ItemTemplate>
+                                        <a href="brandEdit.aspx"><asp:ImageButton ID="ImageButton1" CommandName="Editt" CommandArgument='<%# Container.DataItemIndex %>' runat="server" ImageUrl="~/image/ed.png" height="30px"/>
+                                   </a>
+                                            </ItemTemplate>
+                                </asp:TemplateField>
+                      <asp:TemplateField HeaderText="Delete">
+                          <ItemTemplate>
+                              <asp:ImageButton ID ="b2" runat="server" CommandName="delete" ImageUrl="~/image/delete.png" Height="30px" />
                           </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandID" Text='<%# Eval("brandID") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtFBrandIDFooter" Text='<%# Eval("brandID") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField HeaderText="Brand Name">
-                    <ItemTemplate>
-                        <asp:Label Text='<%# Eval("brandName") %>'  runat="server" />
-                          </ItemTemplate>
-                    <EditItemTemplate>
-                        <asp:TextBox ID="txtBrandName" Text='<%# Eval("brandName") %>' runat="server" />
-                    </EditItemTemplate>
-                    <FooterTemplate>
-                        <asp:TextBox ID="txtBrandNameFooter" Text='<%# Eval("brandName") %>' runat="server" />
-                    </FooterTemplate>
-                </asp:TemplateField>
-
-                <asp:TemplateField>
-                    <ItemTemplate>
-                        <asp:ImageButton ImageUrl="~/image/edit.png" runat="server" CommandName="Edit" ToolTip="Edit" Width="20px" Height="20px" />
-                        <asp:ImageButton ImageUrl="~/image/delete.png" runat="server" CommandName="Delete" ToolTip="Delete" Width="20px" Height="20px" />
-                        </ItemTemplate>
-                    <EditItemTemplate>
-                         <asp:ImageButton ImageUrl="~/image/save.png" runat="server" CommandName="Update" ToolTip="Update" Width="20px" Height="20px" />
-                        <asp:ImageButton ImageUrl="~/image/cancel.png" runat="server" CommandName="Cancel" ToolTip="Cancel" Width="20px" Height="20px" />
-                        </EditItemTemplate>
-                    <FooterTemplate>
-                    </FooterTemplate>
-                </asp:TemplateField>
-            </Columns>
-            <FooterStyle BackColor="#F7DFB5" ForeColor="#8C4510" />
-            <HeaderStyle BackColor="#A55129" Font-Bold="True" ForeColor="White" />
-            <PagerStyle ForeColor="#8C4510" HorizontalAlign="Center" />
-            <RowStyle BackColor="#FFF7E7" ForeColor="#8C4510" />
-            <SelectedRowStyle BackColor="#738A9C" Font-Bold="True" ForeColor="White" />
-            <SortedAscendingCellStyle BackColor="#FFF1D4" />
-            <SortedAscendingHeaderStyle BackColor="#B95C30" />
-            <SortedDescendingCellStyle BackColor="#F1E5CE" />
-            <SortedDescendingHeaderStyle BackColor="#93451F" />
+                      </asp:TemplateField>
+                                
+                            </Columns>
+                   <EditRowStyle BackColor="#999999" />
+                   <FooterStyle BackColor="#5D7B9D" ForeColor="White" Font-Bold="True" />
+                   <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                   <PagerStyle ForeColor="White" HorizontalAlign="Center" BackColor="#284775" />
+                   <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                   <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                   <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                   <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                   <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                   <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
         </asp:GridView>
-    </form>
+               </form>
 </body>
 </html>
