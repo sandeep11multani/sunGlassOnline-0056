@@ -6,7 +6,10 @@
 <head runat="server">
    <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
 
-    
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  
+    <script src="Scripts/bootstrap.min.js"></script>
     <style type="text/css" id="newStyle2">
 
         body {

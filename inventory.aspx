@@ -4,12 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
+    <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" /> 
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+   
+    <script src="Scripts/bootstrap.min.js"></script>
+   
 
-    
     <style type="text/css" id="newStyle2">
 
-        body {
+        body {          
     margin: 0;
 }
 
@@ -17,7 +21,7 @@ ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    position: fixed;
+    position: absolute;
     top: 0;
     width: 100%;
     overflow: hidden;
@@ -52,8 +56,8 @@ li {
 }
 
         #form1 {
-            height: 707px;
-            width: 1798px;
+            height: 70%;
+            width: 100%;
             margin-left: 0px;
         }
 
@@ -75,12 +79,12 @@ li {
         }
 
         .auto-style3 {
-            width: 1520px;
+            
         }
 
     </style> 
 </head>
-<body class="newStyle3" style="width: 1580px">
+<body class="newStyle3">
 
     <form id="form1" runat="server" class="auto-style3">
                <ul>
