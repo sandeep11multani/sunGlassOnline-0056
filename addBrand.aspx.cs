@@ -42,18 +42,40 @@ namespace WebApplication7
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+         using (SqlConnection con = new SqlConnection(mystring))
+                    {
+                        con.Open();
 
-            SqlConnection con = new SqlConnection(mystring);
-            con.Open();
-            SqlCommand cmd = con.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-           cmd.CommandText = " insert into brandList values('" + TextBox2.Text + "','"+TextBox3.Text+ "')";
-            cmd.ExecuteNonQuery();
-            con.Close();
-            TextBox3.Text = "";
-            TextBox2.Text = "";
-            bindData();
+                        bool exists = false;
 
+                        // create a command to check if the username exists
+                        using (SqlCommand cmd = new SqlCommand("select count(*) from brandList where brandID = @brandID", con))
+                        {
+                            cmd.Parameters.AddWithValue("brandID", TextBox2.Text);
+                            exists = (int)cmd.ExecuteScalar() > 0;
+                        }
+
+                        // if exists, show a message error
+                        if (exists)
+                        {
+                            Label4.Text = "ID already exist";
+                            Label4.Visible = true;
+                        }
+                        else
+                        {
+                    //using (SqlConnection con = new SqlConnection(mystring);
+                         //con.Open();
+                         SqlCommand cmd = con.CreateCommand();
+                         cmd.CommandType = CommandType.Text;
+                         cmd.CommandText = " insert into brandList values('" + TextBox2.Text + "','" + TextBox3.Text + "')";
+                         cmd.ExecuteNonQuery();
+                         con.Close();
+                         TextBox3.Text = "";
+                         TextBox2.Text = "";
+                         bindData();
+
+                        }
+                    }
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

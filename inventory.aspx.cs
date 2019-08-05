@@ -13,7 +13,7 @@ namespace WebApplication7
         public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
         protected void Page_Load(object sender, EventArgs e)
         {
-            string query = "select brand as 'Brand Name', availableQuantity as 'Number of Products' from productList";
+            string query = "select brand as  'Brand Name', availableQuantity as 'Number of Products' from productList";
             SqlConnection con = new SqlConnection(mystring);
             SqlCommand cmd = new SqlCommand();
             cmd.CommandText = query;

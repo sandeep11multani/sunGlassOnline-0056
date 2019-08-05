@@ -2,12 +2,11 @@
     background-image: url('image/sun.jpg');
     background-position: 50% top;
     background-repeat: no-repeat;
-   
     background-attachment: fixed;
-    width: 1792px;
+    width: 100%;
     margin-left: 0px;
-    height: 920px;
-    }
+    height: 98%;
+}
 
 div {
     font: 80% Arial, Helvetica, sans-serif;
@@ -15,10 +14,9 @@ div {
     padding-left: 200px;
     }
 
-    body
-
-{
+body {
     margin: 0;
     padding: 0;
 }
+
 

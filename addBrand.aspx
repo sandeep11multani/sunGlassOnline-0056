@@ -4,8 +4,14 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
-
+    <title>
+    </title>
+     
+    <link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
+   <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  
+    <script src="Scripts/bootstrap.min.js"></script>
     
     <style type="text/css" id="newStyle2">
 
@@ -98,6 +104,7 @@ li {
                <asp:Label ID="Label2" runat="server" Text="Brand ID"></asp:Label>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                <asp:TextBox ID="TextBox2" runat="server" Height="30px" Width="126px"></asp:TextBox>
+               &nbsp;<asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
                <br />
                <br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

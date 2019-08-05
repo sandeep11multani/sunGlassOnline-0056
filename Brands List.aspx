@@ -1,11 +1,14 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Brands List.aspx.cs" Inherits="Sunglasses_Online.Brands_List" %>
+﻿000000000000000000000<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Brands List.aspx.cs" Inherits="Sunglasses_Online.Brands_List" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title><link rel="stylesheet" type="text/css" href="Stylesheet1.css" />
-
+    <script src="Scripts/jquery-3.0.0.min.js"></script>
+    <link href="Content/bootstrap.min.css" rel="stylesheet" />
+  
+    <script src="Scripts/bootstrap.min.js"></script>
     
     <style type="text/css" id="newStyle2">
 
