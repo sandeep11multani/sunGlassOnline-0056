@@ -11,7 +11,7 @@ namespace WebApplication7
 {
     public partial class addBrand : System.Web.UI.Page
     {
-        public string mystring = "Data Source=DESKTOP-9HUANL2\\KHEHRA05;Initial Catalog=newP;Integrated Security=True";
+        public string mystring = "Data Source=desktop-c94h52l\\sqlexpress;Initial Catalog=myproject;Integrated Security=True";
 
         protected void Page_Load(object sender, EventArgs e)
         {
